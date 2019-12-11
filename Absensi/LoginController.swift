@@ -21,6 +21,7 @@ class LoginController: UIViewController {
     var hud : JGProgressHUD?
     var test: Bool!
     
+    @IBOutlet weak var viewbackground: UIView!
     @IBAction func showhidepassword(_ sender: Any) {
         if(iconClick == true) {
             password.isSecureTextEntry = false
@@ -107,6 +108,27 @@ class LoginController: UIViewController {
         hud?.backgroundColor = UIColor(white: 0, alpha: 0.4)
         hud?.layoutMargins = UIEdgeInsets.init(top: 0.0, left: 0.0, bottom: 10.0, right: 0.0)
         
+//        let gradientLayer:CAGradientLayer = CAGradientLayer()
+//        gradientLayer.frame.size = self.viewbackground.frame.size
+//        gradientLayer.colors =
+//            [UIColor.white.cgColor,UIColor.red.withAlphaComponent(1).cgColor]
+//        viewbackground.layer.addSublayer(gradientLayer)
+        
+//        viewbackground.layer.addSublayer(gradient)
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        let gradient = CAGradientLayer()
+        
+        gradient.frame = viewbackground.frame
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+        let color = UIColor(hexString: "#066000")
+        let color1 = UIColor(hexString: "#66F51D")
+        gradient.colors = [color.cgColor, color1.cgColor]
+        
+        viewbackground.layer.insertSublayer(gradient, at: 0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -138,5 +160,36 @@ class LoginController: UIViewController {
         textfield.rightView = outer
         textfield.rightViewMode = .always
         textfield.rightViewMode = UITextFieldViewMode.always
+    }
+}
+
+extension UIColor {
+    convenience init(hexString: String, alpha: CGFloat = 1.0) {
+        let hexString: String = hexString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        let scanner = Scanner(string: hexString)
+        if (hexString.hasPrefix("#")) {
+            scanner.scanLocation = 1
+        }
+        var color: UInt32 = 0
+        scanner.scanHexInt32(&color)
+        let mask = 0x000000FF
+        let r = Int(color >> 16) & mask
+        let g = Int(color >> 8) & mask
+        let b = Int(color) & mask
+        let red = CGFloat(r) / 255.0
+        let green = CGFloat(g) / 255.0
+        let blue = CGFloat(b) / 255.0
+        self.init(red:red, green:green, blue:blue, alpha:alpha)
+        
+    }
+    
+    func toHexString() -> String {
+        var r:CGFloat = 0
+        var g:CGFloat = 0
+        var b:CGFloat = 0
+        var a:CGFloat = 0
+        getRed(&r, green: &g, blue: &b, alpha: &a)
+        let rgb:Int = (Int)(r*255)<<16 | (Int)(g*255)<<8 | (Int)(b*255)<<0
+        return String(format:"#%06x", rgb)
     }
 }

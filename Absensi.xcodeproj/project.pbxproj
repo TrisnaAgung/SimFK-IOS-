@@ -32,6 +32,8 @@
 		0BC04172237E2F0100FE6632 /* AddJadwalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC04171237E2F0100FE6632 /* AddJadwalController.swift */; };
 		0BD3C6E6237D2C9600DAF0C8 /* JadwalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD3C6E5237D2C9600DAF0C8 /* JadwalController.swift */; };
 		0BD3C6E8237D3EBF00DAF0C8 /* MatkulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD3C6E7237D3EBF00DAF0C8 /* MatkulViewController.swift */; };
+		0BDBEDD123A09E0B00085EF0 /* LDGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDBEDD023A09E0B00085EF0 /* LDGradientView.swift */; };
+		0BDBEDD523A0A56000085EF0 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDBEDD423A0A56000085EF0 /* GradientView.swift */; };
 		0BF6021E2373A595002AE046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF6021D2373A595002AE046 /* AppDelegate.swift */; };
 		0BF602202373A595002AE046 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF6021F2373A595002AE046 /* ViewController.swift */; };
 		0BF602232373A595002AE046 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BF602212373A595002AE046 /* Main.storyboard */; };
@@ -86,6 +88,8 @@
 		0BC04171237E2F0100FE6632 /* AddJadwalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJadwalController.swift; sourceTree = "<group>"; };
 		0BD3C6E5237D2C9600DAF0C8 /* JadwalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JadwalController.swift; sourceTree = "<group>"; };
 		0BD3C6E7237D3EBF00DAF0C8 /* MatkulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatkulViewController.swift; sourceTree = "<group>"; };
+		0BDBEDD023A09E0B00085EF0 /* LDGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDGradientView.swift; sourceTree = "<group>"; };
+		0BDBEDD423A0A56000085EF0 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		0BF6021A2373A595002AE046 /* Absensi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Absensi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF6021D2373A595002AE046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BF6021F2373A595002AE046 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 				0B74B9D9238297420001B597 /* CustomLayout.swift */,
 				0BB5A2912384C7740078ABCA /* Func.swift */,
 				0BB5A2932384D49D0078ABCA /* SweetAlert.swift */,
+				0BDBEDD023A09E0B00085EF0 /* LDGradientView.swift */,
+				0BDBEDD423A0A56000085EF0 /* GradientView.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -438,8 +444,10 @@
 			files = (
 				0BD3C6E6237D2C9600DAF0C8 /* JadwalController.swift in Sources */,
 				0BF602202373A595002AE046 /* ViewController.swift in Sources */,
+				0BDBEDD523A0A56000085EF0 /* GradientView.swift in Sources */,
 				0BB2A9E52394DE88004A8A6D /* JadwalLive.swift in Sources */,
 				0BB5A2902384C6590078ABCA /* SimpanMatkul.swift in Sources */,
+				0BDBEDD123A09E0B00085EF0 /* LDGradientView.swift in Sources */,
 				0B77451E2399DCA8006A33FA /* AbsensiViewController.swift in Sources */,
 				0B7C8E512383E85500DEBD80 /* RuangViewController.swift in Sources */,
 				0B40BBF623823FB70014E6F6 /* EZLoadingActivity.swift in Sources */,
