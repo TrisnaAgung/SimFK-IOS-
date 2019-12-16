@@ -10,7 +10,7 @@ import UIKit
 import ImageSlideshow
 import ActionSheetPicker_3_0
 
-class HomeController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+class HomeController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var collectionview: UICollectionView!
     @IBOutlet weak var info: UIView!
     @IBOutlet weak var initialLabel: UILabel!
@@ -36,13 +36,13 @@ class HomeController: UIViewController,UICollectionViewDelegate,UICollectionView
         var layout                      = self.collectionview.collectionViewLayout as! UICollectionViewFlowLayout
 //        layout.sectionInset             = UIEdgeInsetsMake(0, 5, 0, 5)
         layout.minimumInteritemSpacing  = 10
-        layout.minimumLineSpacing       = 20
-        layout.itemSize                 = CGSize(width: (self.collectionview.frame.size.width - 20)/2,height: self.collectionview.frame.size.height/3)
-        info.layer.borderColor          = UIColor.lightGray.cgColor
-        info.layer.borderWidth          = 1
+        layout.minimumLineSpacing       = 15
+//        layout.itemSize                 = CGSize(width: (self.collectionview.frame.size.width - 20)/2,height: self.collectionview.frame.size.height/3)
+//        info.layer.borderColor          = UIColor.lightGray.cgColor
+//        info.layer.borderWidth          = 1
         
         if let stringInput = UserDefaults.standard.object(forKey: "nama") as? String {
-            let stringInputArr = stringInput.components(separatedBy: " ")
+            let stringInputArr = stringInput.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: " ")
             var stringNeed = ""
             var i = 0
             for string in stringInputArr {
@@ -82,6 +82,14 @@ class HomeController: UIViewController,UICollectionViewDelegate,UICollectionView
         cell.layer.borderWidth  = 0.7
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let height = view.frame.size.height
+//        let height = self.collectionview.frame.size.height/3
+        let width = view.frame.size.width
+        // in case you you want the cell to be 40% of your controllers view
+        return CGSize(width: width * 0.4, height: height * 0.22)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

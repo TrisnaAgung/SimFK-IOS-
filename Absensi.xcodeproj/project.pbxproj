@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0B166E4F237911FE00649136 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B166E4E237911FE00649136 /* LoginController.swift */; };
 		0B166E522379465300649136 /* Switcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B166E512379465300649136 /* Switcher.swift */; };
+		0B20AB8823A768E70073712A /* TipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20AB8723A768E70073712A /* TipeViewController.swift */; };
+		0B20AB8A23A769E20073712A /* PopUpTipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20AB8923A769E20073712A /* PopUpTipeTableViewCell.swift */; };
+		0B20AB8C23A771610073712A /* Tipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20AB8B23A771610073712A /* Tipe.swift */; };
 		0B40BBF623823FB70014E6F6 /* EZLoadingActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B40BBF523823FB70014E6F6 /* EZLoadingActivity.swift */; };
 		0B40BBF8238243580014E6F6 /* Matkul.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B40BBF7238243580014E6F6 /* Matkul.swift */; };
 		0B40BBFD238254370014E6F6 /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B40BBFC238254370014E6F6 /* MenuViewCell.swift */; };
@@ -65,6 +68,9 @@
 /* Begin PBXFileReference section */
 		0B166E4E237911FE00649136 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		0B166E512379465300649136 /* Switcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switcher.swift; sourceTree = "<group>"; };
+		0B20AB8723A768E70073712A /* TipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipeViewController.swift; sourceTree = "<group>"; };
+		0B20AB8923A769E20073712A /* PopUpTipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpTipeTableViewCell.swift; sourceTree = "<group>"; };
+		0B20AB8B23A771610073712A /* Tipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tipe.swift; sourceTree = "<group>"; };
 		0B40BBF523823FB70014E6F6 /* EZLoadingActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZLoadingActivity.swift; sourceTree = "<group>"; };
 		0B40BBF7238243580014E6F6 /* Matkul.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matkul.swift; sourceTree = "<group>"; };
 		0B40BBFC238254370014E6F6 /* MenuViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewCell.swift; sourceTree = "<group>"; };
@@ -146,6 +152,7 @@
 				0BB2A9E22394DD13004A8A6D /* CheckIn.swift */,
 				0BB2A9E42394DE88004A8A6D /* JadwalLive.swift */,
 				0B564BBA239DF5150018F78B /* Absensi.swift */,
+				0B20AB8B23A771610073712A /* Tipe.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -171,6 +178,7 @@
 				0B7C8E4C2383AB0900DEBD80 /* PopUpMatkulTableViewCell.swift */,
 				0B7C8E522383E8B000DEBD80 /* PopUpRuangTableViewCell.swift */,
 				0B77451F239A1551006A33FA /* AbsensiTableViewCell.swift */,
+				0B20AB8923A769E20073712A /* PopUpTipeTableViewCell.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -218,6 +226,7 @@
 				0B7C8E502383E85500DEBD80 /* RuangViewController.swift */,
 				0BB2A9E02394DC4D004A8A6D /* JadwalLiveViewController.swift */,
 				0B77451D2399DCA8006A33FA /* AbsensiViewController.swift */,
+				0B20AB8723A768E70073712A /* TipeViewController.swift */,
 			);
 			path = Absensi;
 			sourceTree = "<group>";
@@ -442,6 +451,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B20AB8A23A769E20073712A /* PopUpTipeTableViewCell.swift in Sources */,
 				0BD3C6E6237D2C9600DAF0C8 /* JadwalController.swift in Sources */,
 				0BF602202373A595002AE046 /* ViewController.swift in Sources */,
 				0BDBEDD523A0A56000085EF0 /* GradientView.swift in Sources */,
@@ -451,6 +461,7 @@
 				0B77451E2399DCA8006A33FA /* AbsensiViewController.swift in Sources */,
 				0B7C8E512383E85500DEBD80 /* RuangViewController.swift in Sources */,
 				0B40BBF623823FB70014E6F6 /* EZLoadingActivity.swift in Sources */,
+				0B20AB8823A768E70073712A /* TipeViewController.swift in Sources */,
 				0BB5A2962384E2110078ABCA /* JadwalKelas.swift in Sources */,
 				0BB5A2942384D49D0078ABCA /* SweetAlert.swift in Sources */,
 				0B7C8E4F2383E7D900DEBD80 /* Ruang.swift in Sources */,
@@ -460,6 +471,7 @@
 				0B40BBFD238254370014E6F6 /* MenuViewCell.swift in Sources */,
 				0BB5A2922384C7740078ABCA /* Func.swift in Sources */,
 				0B8E29FD23750581003A5596 /* Menu1Controller.swift in Sources */,
+				0B20AB8C23A771610073712A /* Tipe.swift in Sources */,
 				0BB2A9E32394DD13004A8A6D /* CheckIn.swift in Sources */,
 				0B40BBFF238255E90014E6F6 /* MatkulTableViewCell.swift in Sources */,
 				0B7C8E532383E8B000DEBD80 /* PopUpRuangTableViewCell.swift in Sources */,
@@ -643,7 +655,7 @@
 				DEVELOPMENT_TEAM = FR9MFU557M;
 				INFOPLIST_FILE = Absensi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.technesia.Absensi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.technesia.simfk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -661,7 +673,7 @@
 				DEVELOPMENT_TEAM = FR9MFU557M;
 				INFOPLIST_FILE = Absensi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.technesia.Absensi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.technesia.simfk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

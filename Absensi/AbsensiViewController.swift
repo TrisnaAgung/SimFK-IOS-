@@ -169,13 +169,13 @@ class AbsensiViewController: UIViewController, UITableViewDataSource, UITableVie
         let hari                    = DateFormatter()
         hari.dateFormat             = "EEEE"
         
-        cell.labelmasuk.text        = jam.string(from:  dateFormatterGet.date(from: (self.absensi?.data[indexPath.row].checkIn)!)!)
+        cell.labelmasuk.text        = "\(jam.string(from:  dateFormatterGet.date(from: (self.absensi?.data[indexPath.row].checkIn)!)!)) (\(self.absensi!.data[indexPath.row].fingerIn.nama))"
         
         if self.absensi?.data[indexPath.row].checkOut == nil {
             cell.labelpulang.text   = "-"
             cell.labelwaktu.text    = "-"
         } else {
-            cell.labelpulang.text   = jam.string(from:  dateFormatterGet.date(from: (self.absensi?.data[indexPath.row].checkOut)!)!)
+            cell.labelpulang.text   = "\(jam.string(from:  dateFormatterGet.date(from: (self.absensi?.data[indexPath.row].checkOut)!)!)) (\(self.absensi!.data[indexPath.row].fingerOut!.nama))"
             cell.labelwaktu.text    = self.absensi?.data[indexPath.row].menit
         }
         

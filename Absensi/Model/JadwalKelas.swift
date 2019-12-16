@@ -39,6 +39,8 @@ class JadwalData: Codable {
     var idJadwalKelas, tanggal, dosenNip: String
     var checkIn, checkOut, tglBaru: JSONNull?
     var ruangBaru, jamAwal, jamAkhir: String
+    var tipe: String?
+    var tipe_desc: String
     var ip: JSONNull?
     var ruangbaru: Ruangbaru
     var ploting: Ploting
@@ -55,9 +57,10 @@ class JadwalData: Codable {
         case jamAwal = "jam_awal"
         case jamAkhir = "jam_akhir"
         case ip, ruangbaru, ploting
+        case tipe,tipe_desc
     }
     
-    init(id: Int, idJadwalKelas: String, tanggal: String, dosenNip: String, checkIn: JSONNull?, checkOut: JSONNull?, tglBaru: JSONNull?, ruangBaru: String, jamAwal: String, jamAkhir: String, ip: JSONNull?, ruangbaru: Ruangbaru, ploting: Ploting) {
+    init(id: Int, idJadwalKelas: String, tanggal: String, dosenNip: String, checkIn: JSONNull?, checkOut: JSONNull?, tglBaru: JSONNull?, ruangBaru: String, jamAwal: String, jamAkhir: String, ip: JSONNull?, ruangbaru: Ruangbaru, ploting: Ploting, tipe: String?, tipe_desc: String) {
         self.id = id
         self.idJadwalKelas = idJadwalKelas
         self.tanggal = tanggal
@@ -71,6 +74,8 @@ class JadwalData: Codable {
         self.ip = ip
         self.ruangbaru = ruangbaru
         self.ploting = ploting
+        self.tipe = tipe
+        self.tipe_desc  = tipe_desc
     }
 }
 

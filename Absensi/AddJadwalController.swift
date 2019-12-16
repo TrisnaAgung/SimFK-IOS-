@@ -15,10 +15,12 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
     
     var data:JadwalData?
     var data1:RuangData?
+    var datatipe:TipeData?
     var data2:Datum?
     let token = UserDefaults.standard.object(forKey: "token") as? String
     var ruang:Ruang?
     var matkul:Matkul?
+    var tipekelas:Tipe?
     var hud : JGProgressHUD?
     var edit: Bool =  false
     var datemulai:Date?
@@ -28,6 +30,7 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
     var idjadwalkelas:Int?
     var ruangbaru:String?
     var id:Int?
+    var jenis:String?
     
     @IBOutlet weak var labelhari: UILabel!
     @IBOutlet weak var labeltanggal: UILabel!
@@ -36,6 +39,7 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var labelruangan: UILabel!
     @IBOutlet weak var labelprodi: UILabel!
     @IBOutlet weak var labelsemester: UILabel!
+    @IBOutlet weak var labeltipe: UILabel!
     
     
     @IBOutlet weak var textfieldhari: UITextField!
@@ -46,6 +50,7 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var textfieldruangan: UITextField!
     @IBOutlet weak var textfieldprodi: UITextField!
     @IBOutlet weak var textfieldsemester: UITextField!
+    @IBOutlet weak var textfieldtipe: UITextField!
     @IBOutlet weak var scrollview: UIScrollView!
     
     @IBOutlet weak var buttonsimpan: UIButton!
@@ -65,6 +70,7 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
         textfieldruangan.delegate   = self
         textfieldprodi.delegate     = self
         textfieldsemester.delegate  = self
+        textfieldtipe.delegate      = self
         
         labelhari.isHidden          = true
         labeltanggal.isHidden       = true
@@ -73,6 +79,7 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
         labelruangan.isHidden       = true
         labelprodi.isHidden         = true
         labelsemester.isHidden      = true
+        labeltipe.isHidden          = true
         
         textfieldmulai.isHidden     = true
         textfieldselesai.isHidden   = true
@@ -81,6 +88,7 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
         textfieldruangan.isHidden   = true
         textfieldprodi.isHidden     = true
         textfieldsemester.isHidden  = true
+        textfieldtipe.isHidden      = true
         
         buttonsimpan.isHidden       = true
         
@@ -97,6 +105,7 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
             textfieldprodi.text         = data?.ploting.namaProdi
             textfieldsemester.text      = data?.ploting.tingkatSemester
             textfieldtanggal.text       = data?.tanggal
+            textfieldtipe.text          = data?.tipe_desc
             
             let dateFormatter           = DateFormatter()
             dateFormatter.dateFormat    = "HH:mm"
@@ -108,6 +117,7 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
             dateselesai                 = dateFormatter.date(from: "\(data?.jamAkhir ?? "")")
             tanggal                     = tanggalFormatter.date(from: "\(data?.tanggal ?? "")")
             ruangbaru                   = data?.ruangBaru
+            jenis                       = data?.tipe
             
             labelhari.isHidden          = false
             labeltanggal.isHidden       = false
@@ -116,6 +126,7 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
             labelruangan.isHidden       = false
             labelprodi.isHidden         = false
             labelsemester.isHidden      = false
+            labeltipe.isHidden          = false
             
             textfieldmulai.isHidden     = false
             textfieldselesai.isHidden   = false
@@ -124,6 +135,7 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
             textfieldruangan.isHidden   = false
             textfieldprodi.isHidden     = false
             textfieldsemester.isHidden  = false
+            textfieldtipe.isHidden      = false
             
             buttonsimpan.isHidden       = false
         }
@@ -138,6 +150,22 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
                 self.present(vc, animated: true, completion: nil)
             }
         }
+    }
+    
+    @IBAction func popuptipe(_ sender: Any) {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier:"dialog2") as? TipeViewController {
+            vc.modalTransitionStyle     = .crossDissolve;
+            vc.modalPresentationStyle   = .overCurrentContext
+            vc.tipekelas                = self.tipekelas
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        let contentRect: CGRect = scrollview.subviews.reduce(into: .zero) { rect, view in
+            rect = rect.union(view.frame)
+        }
+        scrollview.contentSize = contentRect.size
     }
     
     @IBAction func unwindToVC1(segue:UIStoryboardSegue) {
@@ -164,6 +192,7 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
             labelruangan.isHidden       = false
             labelprodi.isHidden         = false
             labelsemester.isHidden      = false
+            labeltipe.isHidden          = false
             
             textfieldmulai.isHidden     = false
             textfieldselesai.isHidden   = false
@@ -172,6 +201,7 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
             textfieldruangan.isHidden   = false
             textfieldprodi.isHidden     = false
             textfieldsemester.isHidden  = false
+            textfieldtipe.isHidden      = false
             
             buttonsimpan.isHidden       = false
         }
@@ -185,6 +215,13 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
             ruangbaru                   = data1?.kodeCyber ?? ""
             
             textfieldruangan.text       = data1?.namaRuang ?? ""
+        }
+    }
+    
+    @IBAction func unwindToVC3(segue:UIStoryboardSegue) {
+        if datatipe != nil {
+            textfieldtipe.text      = datatipe?.desc ?? ""
+            jenis                   = datatipe?.id ?? ""
         }
     }
     
@@ -213,8 +250,26 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
             (response) in
             switch response.result {
             case .success( _):
-                self.hud?.dismiss()
+//                self.hud?.dismiss()
                 self.ruang = response.result.value!
+                self.loadtipe()
+            case .failure(let error):
+                self.hud?.dismiss()
+                print(error)
+            }
+        }
+    }
+    
+    func loadtipe(){
+        let headers = ["Authorization" : "Bearer "+token!+"",
+                       "Content-Type": "application/json"]
+        
+        Alamofire.request("http://sim.fk.unair.ac.id/api/tipekelas-list", method: .get ,parameters: nil, encoding: JSONEncoding.default, headers: headers).responseTipe{
+            (response) in
+            switch response.result {
+            case .success( _):
+                self.hud?.dismiss()
+                self.tipekelas = response.result.value!
             case .failure(let error):
                 self.hud?.dismiss()
                 print(error)
@@ -286,11 +341,16 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
             let dateFormatter           = DateFormatter()
             dateFormatter.dateFormat    = "yyyy-MM-dd"
             
+            let hari                    = DateFormatter()
+            hari.dateFormat             = "EEEE"
+            
             self.tanggal                = dateFormatterGet.date(from: "\(value ?? "")")
 
             self.textfieldtanggal.text  = dateFormatter.string(from: self.tanggal!)
             
             self.data?.tanggal          = dateFormatter.string(from: self.tanggal!)
+            
+            self.textfieldhari.text     = hari.string(from: self.tanggal!)
             
             return
         }, cancel: { ActionStringCancelBlock in return }, origin: sender as! UIView)
@@ -338,6 +398,7 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
             "ruang_baru"        : ruangbaru as Any,
             "jam_awal"          : self.textfieldmulai.text as Any,
             "jam_akhir"         : self.textfieldselesai.text as Any,
+            "jenis"             : jenis as Any,
             ]
         Alamofire.request("http://sim.fk.unair.ac.id/api/jadwalkelas-simpan", method: .post ,parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseSimpanMatkul{
             (response) in
