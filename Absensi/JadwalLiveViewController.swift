@@ -20,32 +20,45 @@ class JadwalLiveViewController: UIViewController {
     @IBOutlet weak var textfield_semester: UITextField!
     @IBOutlet weak var preview: UIImageView!
     var jadwalLive:JadwalLive?
+    var nim: String?
     var scanner: MTBBarcodeScanner?
     
     @IBAction func scan(_ sender: Any) {
-        MTBBarcodeScanner.requestCameraPermission(success: { success in
-            if success {
-                do {
-                    // Start scanning with the front camera
-                    try self.scanner?.startScanning(with: .back,
-                                                    resultBlock: { codes in
-                                                        if let codes = codes {
-                                                            for code in codes {
-                                                                let stringValue = code.stringValue!
-                                                                print("Found code: \(stringValue)")
-                                                            }
-                                                        }
-                    })
-                    
-                } catch {
-                    NSLog("Unable to start scanning")
-                }
-            } else {
-                let alertController = UIAlertController(title: "Scanning Unavailable", message: "This app does not have permission to access the camera", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                self.present(alertController, animated: true, completion: nil)
-            }
-        })
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier:"scanner") as? ScannerViewController {
+//            vc.modalTransitionStyle     = .crossDissolve;
+//            vc.modalPresentationStyle   = .overCurrentContext
+//            vc.stringValue              = self.nim
+            self.present(vc, animated: true, completion: nil)
+        }
+//        scanner = MTBBarcodeScanner(previewView: preview)
+//        
+//        MTBBarcodeScanner.requestCameraPermission(success: { success in
+//            if success {
+//                do {
+//                    // Start scanning with the back camera
+//                    try self.scanner?.startScanning(with: .back,
+//                                                    resultBlock: { codes in
+//                                                        self.scanner?.captureStillImage({ (image, error) in
+//                                                            NSLog("The image and/or error are accessible here");
+//                                                            if let codes = codes {
+//                                                                for code in codes {
+////                                                                    self.stringValue = code.stringValue!
+////                                                                    print("Found code: \(self.stringValue)")
+//                                                                }
+//                                                                self.performSegue(withIdentifier: "scanner", sender: self)
+//                                                            }
+//                                                        })
+//                                                        self.scanner?.freezeCapture()
+//                    })
+//                } catch {
+//                    NSLog("Unable to start scanning")
+//                }
+//            } else {
+//                let alertController = UIAlertController(title: "Scanning Unavailable", message: "This app does not have permission to access the camera", preferredStyle: .alert)
+//                alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+//                self.present(alertController, animated: true, completion: nil)
+//            }
+//        })
     }
     let token = UserDefaults.standard.object(forKey: "token") as? String
     var hud : JGProgressHUD?
@@ -56,8 +69,6 @@ class JadwalLiveViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             self.showHUDWithTransform()
         }
-        
-        scanner = MTBBarcodeScanner(previewView: preview)
     }
     
     func loadlive(){
@@ -95,5 +106,12 @@ class JadwalLiveViewController: UIViewController {
         textfield_ruangan.text      = live.data.ruangbaru.namaRuang
         textfield_prodi.text        = live.data.ploting.namaProdi
         textfield_semester.text     = live.data.ploting.tingkatSemester
+    }
+    
+    @IBAction func unWindScanner(segue:UIStoryboardSegue) {
+//        if datatipe != nil {
+//            textfieldtipe.text      = datatipe?.desc ?? ""
+//            jenis                   = datatipe?.id ?? ""
+//        }
     }
 }

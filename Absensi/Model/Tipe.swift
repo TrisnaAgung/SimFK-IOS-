@@ -11,10 +11,10 @@ class Tipe: Codable {
 }
 
 class TipeData: Codable {
-    var id, desc: String
+    var kode, desc: String
     
-    init(id: String, desc: String) {
-        self.id = id
+    init(kode: String, desc: String) {
+        self.kode = kode
         self.desc = desc
     }
 }

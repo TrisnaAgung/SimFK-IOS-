@@ -16,20 +16,42 @@ class HomeController: UIViewController,UICollectionViewDelegate,UICollectionView
     @IBOutlet weak var initialLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    let name = ["Jadwal Kuliah","Jadwal Live","Absensi Kehadiran"]
-    let image = [UIImage(named: "ic_list")!,UIImage(named: "ic_live")!,UIImage(named: "ic_finger")!]
+    let name = ["Jadwal Kuliah","Jadwal Live","Absensi Kehadiran","History Mengajar","Rekap Absen"]
+    let image = [UIImage(named: "ic_list")!,UIImage(named: "ic_live")!,UIImage(named: "ic_finger")!,UIImage(named: "ic_history")!,UIImage(named: "ic_finger")!]
     var collectionViewFlowLayout: UICollectionViewFlowLayout!
     
+    @IBOutlet weak var helpbutton: UIBarButtonItem!
     @IBAction func logout(_ sender: Any) {
         let preferences = UserDefaults.standard
         preferences.set(false, forKey: "Login")
         preferences.synchronize()
         Switcher.updateRootVC()
     }
+    @IBAction func help(_ sender: Any) {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier:"help") as? HelpViewController {
+            vc.modalTransitionStyle     = .crossDissolve;
+            vc.modalPresentationStyle   = .overCurrentContext
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionview.dataSource       = self
         collectionview.delegate         = self
+        
+        //create a new button
+        let button: UIButton = UIButton(type: UIButtonType.custom)
+        //set image for button
+        button.setImage(UIImage(named: "ic_help1"), for: UIControlState.normal)
+        //add function for button
+        button.addTarget(self, action: Selector(("help1")), for: UIControlEvents.touchUpInside)
+        //set frame
+//        button.frame = CGRectMake(0, 0, 53, 31)
+        
+        let barButton = UIBarButtonItem(customView: button)
+        //assign button to navigationbar
+        self.navigationItem.leftBarButtonItem = barButton
         
 //        setupCollectionViewItemSize()
         
@@ -104,6 +126,8 @@ class HomeController: UIViewController,UICollectionViewDelegate,UICollectionView
         case 2:
             self.performSegue(withIdentifier: "menu3", sender: self)
             break;
+        case 3:
+            self.performSegue(withIdentifier: "menu4", sender: self)
         default:
             break;
         }
@@ -128,6 +152,15 @@ class HomeController: UIViewController,UICollectionViewDelegate,UICollectionView
             collectionview.setCollectionViewLayout(collectionViewFlowLayout, animated: true)
         }
     }
+    
+    @objc func help1(){
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier:"help") as? HelpViewController {
+            vc.modalTransitionStyle     = .crossDissolve;
+            vc.modalPresentationStyle   = .overCurrentContext
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
 }
 
 extension UIView {

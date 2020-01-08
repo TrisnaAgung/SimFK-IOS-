@@ -1,18 +1,19 @@
 //
-//  MatkulTableViewCell.swift
+//  HistoryTableViewCell.swift
 //  Absensi
 //
-//  Created by Unit TSI on 18/11/19.
+//  Created by Unit TSI on 19/12/19.
 //  Copyright © 2019 technesia. All rights reserved.
 //
 
 import UIKit
 
-class MatkulTableViewCell: UITableViewCell {
+class HistoryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var labelmatkul: UILabel!
-    @IBOutlet weak var labelkelas: UILabel!
+    @IBOutlet weak var labelruang: UILabel!
     @IBOutlet weak var labelwaktu: UILabel!
+    @IBOutlet weak var labeltipe: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

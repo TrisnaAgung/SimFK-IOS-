@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B0AE77A23AB556C004A4F5D /* HistoryMengajarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0AE77923AB556C004A4F5D /* HistoryMengajarViewController.swift */; };
+		0B0AE77C23AB5610004A4F5D /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0AE77B23AB5610004A4F5D /* HistoryTableViewCell.swift */; };
 		0B166E4F237911FE00649136 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B166E4E237911FE00649136 /* LoginController.swift */; };
 		0B166E522379465300649136 /* Switcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B166E512379465300649136 /* Switcher.swift */; };
 		0B20AB8823A768E70073712A /* TipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20AB8723A768E70073712A /* TipeViewController.swift */; };
 		0B20AB8A23A769E20073712A /* PopUpTipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20AB8923A769E20073712A /* PopUpTipeTableViewCell.swift */; };
 		0B20AB8C23A771610073712A /* Tipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B20AB8B23A771610073712A /* Tipe.swift */; };
+		0B2B83C923A86A3F00D4069B /* ClassLabelSizeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2B83C823A86A3F00D4069B /* ClassLabelSizeClass.swift */; };
+		0B2B83CB23A8782A00D4069B /* ClassTextFieldSizeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2B83CA23A8782A00D4069B /* ClassTextFieldSizeClass.swift */; };
 		0B40BBF623823FB70014E6F6 /* EZLoadingActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B40BBF523823FB70014E6F6 /* EZLoadingActivity.swift */; };
 		0B40BBF8238243580014E6F6 /* Matkul.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B40BBF7238243580014E6F6 /* Matkul.swift */; };
 		0B40BBFD238254370014E6F6 /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B40BBFC238254370014E6F6 /* MenuViewCell.swift */; };
 		0B40BBFF238255E90014E6F6 /* MatkulTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B40BBFE238255E90014E6F6 /* MatkulTableViewCell.swift */; };
+		0B4284B123A9B6CF00A1CD51 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4284B023A9B6CF00A1CD51 /* ScannerViewController.swift */; };
 		0B564BBB239DF5150018F78B /* Absensi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B564BBA239DF5150018F78B /* Absensi.swift */; };
 		0B74B9DA238297420001B597 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B74B9D9238297420001B597 /* CustomLayout.swift */; };
 		0B77451E2399DCA8006A33FA /* AbsensiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B77451D2399DCA8006A33FA /* AbsensiViewController.swift */; };
@@ -37,6 +42,7 @@
 		0BD3C6E8237D3EBF00DAF0C8 /* MatkulViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD3C6E7237D3EBF00DAF0C8 /* MatkulViewController.swift */; };
 		0BDBEDD123A09E0B00085EF0 /* LDGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDBEDD023A09E0B00085EF0 /* LDGradientView.swift */; };
 		0BDBEDD523A0A56000085EF0 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDBEDD423A0A56000085EF0 /* GradientView.swift */; };
+		0BEDBB9123C2C00F00BE03EB /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEDBB9023C2C00F00BE03EB /* HelpViewController.swift */; };
 		0BF6021E2373A595002AE046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF6021D2373A595002AE046 /* AppDelegate.swift */; };
 		0BF602202373A595002AE046 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF6021F2373A595002AE046 /* ViewController.swift */; };
 		0BF602232373A595002AE046 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BF602212373A595002AE046 /* Main.storyboard */; };
@@ -66,15 +72,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B0AE77923AB556C004A4F5D /* HistoryMengajarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryMengajarViewController.swift; sourceTree = "<group>"; };
+		0B0AE77B23AB5610004A4F5D /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		0B166E4E237911FE00649136 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		0B166E512379465300649136 /* Switcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switcher.swift; sourceTree = "<group>"; };
 		0B20AB8723A768E70073712A /* TipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipeViewController.swift; sourceTree = "<group>"; };
 		0B20AB8923A769E20073712A /* PopUpTipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpTipeTableViewCell.swift; sourceTree = "<group>"; };
 		0B20AB8B23A771610073712A /* Tipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tipe.swift; sourceTree = "<group>"; };
+		0B2B83C823A86A3F00D4069B /* ClassLabelSizeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassLabelSizeClass.swift; sourceTree = "<group>"; };
+		0B2B83CA23A8782A00D4069B /* ClassTextFieldSizeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTextFieldSizeClass.swift; sourceTree = "<group>"; };
 		0B40BBF523823FB70014E6F6 /* EZLoadingActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZLoadingActivity.swift; sourceTree = "<group>"; };
 		0B40BBF7238243580014E6F6 /* Matkul.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matkul.swift; sourceTree = "<group>"; };
 		0B40BBFC238254370014E6F6 /* MenuViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewCell.swift; sourceTree = "<group>"; };
 		0B40BBFE238255E90014E6F6 /* MatkulTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatkulTableViewCell.swift; sourceTree = "<group>"; };
+		0B4284B023A9B6CF00A1CD51 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		0B564BBA239DF5150018F78B /* Absensi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Absensi.swift; sourceTree = "<group>"; };
 		0B74B9D9238297420001B597 /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		0B77451D2399DCA8006A33FA /* AbsensiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbsensiViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +107,7 @@
 		0BD3C6E7237D3EBF00DAF0C8 /* MatkulViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatkulViewController.swift; sourceTree = "<group>"; };
 		0BDBEDD023A09E0B00085EF0 /* LDGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDGradientView.swift; sourceTree = "<group>"; };
 		0BDBEDD423A0A56000085EF0 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		0BEDBB9023C2C00F00BE03EB /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		0BF6021A2373A595002AE046 /* Absensi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Absensi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF6021D2373A595002AE046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BF6021F2373A595002AE046 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +178,8 @@
 				0BB5A2932384D49D0078ABCA /* SweetAlert.swift */,
 				0BDBEDD023A09E0B00085EF0 /* LDGradientView.swift */,
 				0BDBEDD423A0A56000085EF0 /* GradientView.swift */,
+				0B2B83C823A86A3F00D4069B /* ClassLabelSizeClass.swift */,
+				0B2B83CA23A8782A00D4069B /* ClassTextFieldSizeClass.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -179,6 +193,7 @@
 				0B7C8E522383E8B000DEBD80 /* PopUpRuangTableViewCell.swift */,
 				0B77451F239A1551006A33FA /* AbsensiTableViewCell.swift */,
 				0B20AB8923A769E20073712A /* PopUpTipeTableViewCell.swift */,
+				0B0AE77B23AB5610004A4F5D /* HistoryTableViewCell.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -227,6 +242,9 @@
 				0BB2A9E02394DC4D004A8A6D /* JadwalLiveViewController.swift */,
 				0B77451D2399DCA8006A33FA /* AbsensiViewController.swift */,
 				0B20AB8723A768E70073712A /* TipeViewController.swift */,
+				0B4284B023A9B6CF00A1CD51 /* ScannerViewController.swift */,
+				0B0AE77923AB556C004A4F5D /* HistoryMengajarViewController.swift */,
+				0BEDBB9023C2C00F00BE03EB /* HelpViewController.swift */,
 			);
 			path = Absensi;
 			sourceTree = "<group>";
@@ -451,12 +469,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B0AE77A23AB556C004A4F5D /* HistoryMengajarViewController.swift in Sources */,
 				0B20AB8A23A769E20073712A /* PopUpTipeTableViewCell.swift in Sources */,
 				0BD3C6E6237D2C9600DAF0C8 /* JadwalController.swift in Sources */,
 				0BF602202373A595002AE046 /* ViewController.swift in Sources */,
 				0BDBEDD523A0A56000085EF0 /* GradientView.swift in Sources */,
 				0BB2A9E52394DE88004A8A6D /* JadwalLive.swift in Sources */,
 				0BB5A2902384C6590078ABCA /* SimpanMatkul.swift in Sources */,
+				0B2B83CB23A8782A00D4069B /* ClassTextFieldSizeClass.swift in Sources */,
 				0BDBEDD123A09E0B00085EF0 /* LDGradientView.swift in Sources */,
 				0B77451E2399DCA8006A33FA /* AbsensiViewController.swift in Sources */,
 				0B7C8E512383E85500DEBD80 /* RuangViewController.swift in Sources */,
@@ -465,11 +485,13 @@
 				0BB5A2962384E2110078ABCA /* JadwalKelas.swift in Sources */,
 				0BB5A2942384D49D0078ABCA /* SweetAlert.swift in Sources */,
 				0B7C8E4F2383E7D900DEBD80 /* Ruang.swift in Sources */,
+				0BEDBB9123C2C00F00BE03EB /* HelpViewController.swift in Sources */,
 				0BD3C6E8237D3EBF00DAF0C8 /* MatkulViewController.swift in Sources */,
 				0B774520239A1551006A33FA /* AbsensiTableViewCell.swift in Sources */,
 				0B166E522379465300649136 /* Switcher.swift in Sources */,
 				0B40BBFD238254370014E6F6 /* MenuViewCell.swift in Sources */,
 				0BB5A2922384C7740078ABCA /* Func.swift in Sources */,
+				0B2B83C923A86A3F00D4069B /* ClassLabelSizeClass.swift in Sources */,
 				0B8E29FD23750581003A5596 /* Menu1Controller.swift in Sources */,
 				0B20AB8C23A771610073712A /* Tipe.swift in Sources */,
 				0BB2A9E32394DD13004A8A6D /* CheckIn.swift in Sources */,
@@ -480,7 +502,9 @@
 				0B564BBB239DF5150018F78B /* Absensi.swift in Sources */,
 				0BF6021E2373A595002AE046 /* AppDelegate.swift in Sources */,
 				0BB2A9E12394DC4D004A8A6D /* JadwalLiveViewController.swift in Sources */,
+				0B4284B123A9B6CF00A1CD51 /* ScannerViewController.swift in Sources */,
 				0BF6024E2373A632002AE046 /* HomeController.swift in Sources */,
+				0B0AE77C23AB5610004A4F5D /* HistoryTableViewCell.swift in Sources */,
 				0B40BBF8238243580014E6F6 /* Matkul.swift in Sources */,
 				0BC04172237E2F0100FE6632 /* AddJadwalController.swift in Sources */,
 				0B166E4F237911FE00649136 /* LoginController.swift in Sources */,

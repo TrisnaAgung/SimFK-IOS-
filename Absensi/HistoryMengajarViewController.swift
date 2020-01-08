@@ -1,8 +1,8 @@
 //
-//  JadwalController.swift
+//  HistoryMengajarViewController.swift
 //  Absensi
 //
-//  Created by Unit TSI on 14/11/19.
+//  Created by Unit TSI on 19/12/19.
 //  Copyright © 2019 technesia. All rights reserved.
 //
 
@@ -10,19 +10,13 @@ import UIKit
 import JGProgressHUD
 import Alamofire
 
-class JadwalController: UIViewController,UITableViewDataSource, UITableViewDelegate{
+class HistoryMengajarViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     let token = UserDefaults.standard.object(forKey: "token") as? String
     var jadwalkelas:JadwalKelas?
     var hud : JGProgressHUD?
-    var detailToSend: JadwalData?
     var refreshControl = UIRefreshControl()
-    
-    @IBAction func click(_ sender: Any) {
-        let popOverVC = self.storyboard?.instantiateViewController(withIdentifier: "matkul") as! MatkulViewController
-        popOverVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        self.present(popOverVC, animated: true)
-    }
+
     @IBOutlet weak var table: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +36,7 @@ class JadwalController: UIViewController,UITableViewDataSource, UITableViewDeleg
         let headers = ["Authorization" : "Bearer "+token!+"",
                        "Content-Type": "application/json"]
         
-        Alamofire.request("http://sim.fk.unair.ac.id/api/jadwalkelas-list", method: .get ,parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJadwalKelas{
+        Alamofire.request("http://sim.fk.unair.ac.id/api/absensimengajar-get", method: .get ,parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJadwalKelas{
             (response) in
             switch response.result {
             case .success( _):
@@ -61,10 +55,13 @@ class JadwalController: UIViewController,UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "matkulcell", for: indexPath)
-            as! MatkulTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "historycell", for: indexPath)
+            as! HistoryTableViewCell
         cell.labelmatkul.text   = self.jadwalkelas?.data[indexPath.row].ploting.namaMk
-        cell.labelkelas.text    = self.jadwalkelas?.data[indexPath.row].ruangbaru.namaRuang
+        cell.labelruang.text    = self.jadwalkelas?.data[indexPath.row].ruangbaru.namaRuang
+        
+        let dateFormatterGet        = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
         let dateFormatterGet1       = DateFormatter()
         dateFormatterGet1.dateFormat = "yyyy-MM-dd"
@@ -79,25 +76,22 @@ class JadwalController: UIViewController,UITableViewDataSource, UITableViewDeleg
         jam.dateFormat              = "HH:mm"
         
         let tgl                     = dateFormatterGet1.date(from: (self.jadwalkelas?.data[indexPath.row].tanggal)!)
+
+        if self.jadwalkelas?.data[indexPath.row].checkOut == nil {
+            cell.labelwaktu.text    = "-"
+        } else {
+            cell.labelwaktu.text   = "\(hari.string(from: tgl!)), \(tanggal.string(from: tgl!)) [\(jam.string(from:  dateFormatterGet.date(from: (self.jadwalkelas?.data[indexPath.row].checkIn)!)!)) s/d \(jam.string(from:  dateFormatterGet.date(from: (self.jadwalkelas?.data[indexPath.row].checkOut)!)!))]"
+        }
         
-        cell.labelwaktu.text   = "\(hari.string(from: tgl!)), \(tanggal.string(from: tgl!)) [\(self.jadwalkelas!.data[indexPath.row].jamAwal) s/d \(self.jadwalkelas!.data[indexPath.row].jamAkhir)]"
+        if self.jadwalkelas?.data[indexPath.row].tipemengajar?.desc == nil {
+            cell.labeltipe.text     = "-"
+        } else {
+            cell.labeltipe.text     = self.jadwalkelas?.data[indexPath.row].tipemengajar?.desc
+        }
         
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        detailToSend = self.jadwalkelas?.data[indexPath.row]
-        performSegue(withIdentifier: "addjadwal", sender: detailToSend)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "addjadwal") {
-            let viewController          = segue.destination as! AddJadwalController
-            viewController.data         = detailToSend
-            viewController.edit         = true
-        }
-    }
-    
+
     func showHUDWithTransform() {
         hud = JGProgressHUD(style: .dark)
         hud?.vibrancyEnabled = true

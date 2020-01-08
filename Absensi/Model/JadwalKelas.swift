@@ -37,34 +37,39 @@ class JadwalKelas: Codable {
 class JadwalData: Codable {
     var id: Int
     var idJadwalKelas, tanggal, dosenNip: String
-    var checkIn, checkOut, tglBaru: JSONNull?
-    var ruangBaru, jamAwal, jamAkhir: String
     var tipe: String?
-    var tipe_desc: String
+    var checkIn: String?
+    var checkOut: String?
+    var tglBaru: JSONNull?
+    var ruangBaru, jamAwal, jamAkhir: String
     var ip: JSONNull?
+    var nim: String?
+    var lama: String?
     var ruangbaru: Ruangbaru
     var ploting: Ploting
+    var tipemengajar: Tipemengajar?
     
     enum CodingKeys: String, CodingKey {
         case id
         case idJadwalKelas = "id_jadwal_kelas"
         case tanggal
         case dosenNip = "dosen_nip"
+        case tipe
         case checkIn = "check_in"
         case checkOut = "check_out"
         case tglBaru = "tgl_baru"
         case ruangBaru = "ruang_baru"
         case jamAwal = "jam_awal"
         case jamAkhir = "jam_akhir"
-        case ip, ruangbaru, ploting
-        case tipe,tipe_desc
+        case ip, nim, lama, ruangbaru, ploting, tipemengajar
     }
     
-    init(id: Int, idJadwalKelas: String, tanggal: String, dosenNip: String, checkIn: JSONNull?, checkOut: JSONNull?, tglBaru: JSONNull?, ruangBaru: String, jamAwal: String, jamAkhir: String, ip: JSONNull?, ruangbaru: Ruangbaru, ploting: Ploting, tipe: String?, tipe_desc: String) {
+    init(id: Int, idJadwalKelas: String, tanggal: String, dosenNip: String, tipe: String?, checkIn: String?, checkOut: String?, tglBaru: JSONNull?, ruangBaru: String, jamAwal: String, jamAkhir: String, ip: JSONNull?, nim: String?, lama: String?, ruangbaru: Ruangbaru, ploting: Ploting, tipemengajar: Tipemengajar?) {
         self.id = id
         self.idJadwalKelas = idJadwalKelas
         self.tanggal = tanggal
         self.dosenNip = dosenNip
+        self.tipe = tipe
         self.checkIn = checkIn
         self.checkOut = checkOut
         self.tglBaru = tglBaru
@@ -72,10 +77,11 @@ class JadwalData: Codable {
         self.jamAwal = jamAwal
         self.jamAkhir = jamAkhir
         self.ip = ip
+        self.nim = nim
+        self.lama = lama
         self.ruangbaru = ruangbaru
         self.ploting = ploting
-        self.tipe = tipe
-        self.tipe_desc  = tipe_desc
+        self.tipemengajar = tipemengajar
     }
 }
 
@@ -203,7 +209,24 @@ class Ruangbaru: Codable {
     }
 }
 
-// MARK: - Alamofire response handlers
+//
+// To parse values from Alamofire responses:
+//
+//   Alamofire.request(url).responseTipemengajar { response in
+//     if let tipemengajar = response.result.value {
+//       ...
+//     }
+//   }
+
+// MARK: - Tipemengajar
+class Tipemengajar: Codable {
+    var kode, desc: String
+    
+    init(kode: String, desc: String) {
+        self.kode = kode
+        self.desc = desc
+    }
+}
 
 extension DataRequest {
     fileprivate func decodableResponseSerializer<T: Decodable>() -> DataResponseSerializer<T> {

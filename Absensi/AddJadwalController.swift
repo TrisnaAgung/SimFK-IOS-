@@ -99,25 +99,33 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
         if data != nil {
             textfieldmulai.text         = data?.jamAwal
             textfieldselesai.text       = data?.jamAkhir
-            textfieldhari.text          = data?.ploting.namaHari
+//            textfieldhari.text          = data?.ploting.namaHari
             textfieldmatkul.text        = "\(data?.ploting.namaMk ?? "") - \(data?.ploting.namaKelas ?? "")"
             textfieldruangan.text       = data?.ruangbaru.namaRuang
             textfieldprodi.text         = data?.ploting.namaProdi
             textfieldsemester.text      = data?.ploting.tingkatSemester
             textfieldtanggal.text       = data?.tanggal
-            textfieldtipe.text          = data?.tipe_desc
+            if data?.tipemengajar != nil {
+                textfieldtipe.text      = data?.tipemengajar?.desc
+            } else {
+                textfieldtipe.text      = "-"
+            }
             
             let dateFormatter           = DateFormatter()
             dateFormatter.dateFormat    = "HH:mm"
             
             let tanggalFormatter        = DateFormatter()
             tanggalFormatter.dateFormat = "yyyy-MM-dd"
+            
+            let hari                    = DateFormatter()
+            hari.dateFormat             = "EEEE"
 
             datemulai                   = dateFormatter.date(from: "\(data?.jamAwal ?? "")")
             dateselesai                 = dateFormatter.date(from: "\(data?.jamAkhir ?? "")")
             tanggal                     = tanggalFormatter.date(from: "\(data?.tanggal ?? "")")
             ruangbaru                   = data?.ruangBaru
             jenis                       = data?.tipe
+            textfieldhari.text          = hari.string(from: self.tanggal!)
             
             labelhari.isHidden          = false
             labeltanggal.isHidden       = false
@@ -221,7 +229,7 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
     @IBAction func unwindToVC3(segue:UIStoryboardSegue) {
         if datatipe != nil {
             textfieldtipe.text      = datatipe?.desc ?? ""
-            jenis                   = datatipe?.id ?? ""
+            jenis                   = datatipe?.kode ?? ""
         }
     }
     
@@ -323,9 +331,17 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
             dateFormatter.dateFormat    = "HH:mm"
             
             self.dateselesai            = dateFormatterGet.date(from: "\(value ?? "")")
-
-            self.textfieldselesai.text  = dateFormatter.string(from: self.dateselesai!)
-            self.data?.jamAkhir         = dateFormatter.string(from: self.dateselesai!)
+            
+            let jam                     = dateFormatter.string(from: self.dateselesai!)
+            
+            let difference = Calendar.current.dateComponents([.hour, .minute], from: dateFormatter.date(from: self.textfieldmulai.text!)!, to: dateFormatter.date(from: jam)!)
+            
+            if difference.hour! < 0 || difference.minute! < 0 {
+                print("error")
+            } else {
+                self.textfieldselesai.text  = dateFormatter.string(from: self.dateselesai!)
+                self.data?.jamAkhir         = dateFormatter.string(from: self.dateselesai!)
+            }
             
             return
         }, cancel: { ActionStringCancelBlock in return }, origin: sender as! UIView)
@@ -365,12 +381,46 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
         }
     }
     @IBAction func simpan(_ sender: Any) {
-        SweetAlert().showAlert("Simpan", subTitle: "Apakah anda yakin dengan \n data anda?", style: AlertStyle.warning, buttonTitle:"Iya", buttonColor:UIColor.green , otherButtonTitle:  "Tidak", otherButtonColor: UIColor.red) { (isOtherButton) -> Void in
-            if isOtherButton == true {
-                self.simpan()
-            }
-            else {
-                print("Cancel Button  Pressed")
+        if self.jenis == nil {
+            let alert = UIAlertController(title: "Peringatan", message: "Tipe Kelas Tidak boleh Kosong", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                switch action.style{
+                case .default:
+                    print("default")
+                    
+                case .cancel:
+                    print("cancel")
+                    
+                case .destructive:
+                    print("destructive")
+                    
+                    
+                }}))
+            self.present(alert, animated: true, completion: nil)
+        } else if self.textfieldtanggal.text?.count == 0 {
+            let alert = UIAlertController(title: "Peringatan", message: "Tanggal Tidak boleh Kosong", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                switch action.style{
+                case .default:
+                    print("default")
+                    
+                case .cancel:
+                    print("cancel")
+                    
+                case .destructive:
+                    print("destructive")
+                    
+                    
+                }}))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            SweetAlert().showAlert("Simpan", subTitle: "Apakah anda yakin dengan \n data anda?", style: AlertStyle.warning, buttonTitle:"Iya", buttonColor:UIColor.green , otherButtonTitle:  "Tidak", otherButtonColor: UIColor.red) { (isOtherButton) -> Void in
+                if isOtherButton == true {
+                    self.simpan()
+                }
+                else {
+                    print("Cancel Button  Pressed")
+                }
             }
         }
     }
