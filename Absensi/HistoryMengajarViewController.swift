@@ -83,10 +83,10 @@ class HistoryMengajarViewController: UIViewController,UITableViewDataSource, UIT
             cell.labelwaktu.text   = "\(hari.string(from: tgl!)), \(tanggal.string(from: tgl!)) [\(jam.string(from:  dateFormatterGet.date(from: (self.jadwalkelas?.data[indexPath.row].checkIn)!)!)) s/d \(jam.string(from:  dateFormatterGet.date(from: (self.jadwalkelas?.data[indexPath.row].checkOut)!)!))]"
         }
         
-        if self.jadwalkelas?.data[indexPath.row].tipemengajar?.desc == nil {
+        if self.jadwalkelas?.data[indexPath.row].tipemengajar?.nama == nil {
             cell.labeltipe.text     = "-"
         } else {
-            cell.labeltipe.text     = self.jadwalkelas?.data[indexPath.row].tipemengajar?.desc
+            cell.labeltipe.text     = self.jadwalkelas?.data[indexPath.row].tipemengajar?.nama
         }
         
         return cell

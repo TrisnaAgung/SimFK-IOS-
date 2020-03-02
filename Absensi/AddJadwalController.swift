@@ -106,10 +106,13 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
             textfieldsemester.text      = data?.ploting.tingkatSemester
             textfieldtanggal.text       = data?.tanggal
             if data?.tipemengajar != nil {
-                textfieldtipe.text      = data?.tipemengajar?.desc
+                textfieldtipe.text      = data?.tipemengajar?.nama
+                jenis                   = "\(data!.tipemengajar?.id)"
             } else {
                 textfieldtipe.text      = "-"
             }
+            
+            loadtipe(jadwal: String(data!.idJadwalKelas))
             
             let dateFormatter           = DateFormatter()
             dateFormatter.dateFormat    = "HH:mm"
@@ -178,6 +181,7 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
     
     @IBAction func unwindToVC1(segue:UIStoryboardSegue) {
         if data2 != nil {
+            self.loadtipe(jadwal: String(describing: data2!.idJadwalKelas))
             textfieldmulai.text         = data2?.jamMulai
             textfieldselesai.text       = data2?.jamSelesai
             textfieldhari.text          = data2?.namaHari
@@ -229,7 +233,7 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
     @IBAction func unwindToVC3(segue:UIStoryboardSegue) {
         if datatipe != nil {
             textfieldtipe.text      = datatipe?.desc ?? ""
-            jenis                   = datatipe?.kode ?? ""
+            jenis                   = "\(datatipe!.kode)"
         }
     }
     
@@ -258,9 +262,9 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
             (response) in
             switch response.result {
             case .success( _):
-//                self.hud?.dismiss()
+                self.hud?.dismiss()
                 self.ruang = response.result.value!
-                self.loadtipe()
+//                self.loadtipe()
             case .failure(let error):
                 self.hud?.dismiss()
                 print(error)
@@ -268,11 +272,14 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
         }
     }
     
-    func loadtipe(){
+    func loadtipe(jadwal: String){
+        let parameters : Parameters = [
+            "ploting"                : jadwal as Any,
+            ]
         let headers = ["Authorization" : "Bearer "+token!+"",
                        "Content-Type": "application/json"]
         
-        Alamofire.request("http://sim.fk.unair.ac.id/api/tipekelas-list", method: .get ,parameters: nil, encoding: JSONEncoding.default, headers: headers).responseTipe{
+        Alamofire.request("http://sim.fk.unair.ac.id/api/tipekelas-list", method: .post ,parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseTipe{
             (response) in
             switch response.result {
             case .success( _):

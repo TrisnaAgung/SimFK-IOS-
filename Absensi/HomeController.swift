@@ -16,8 +16,8 @@ class HomeController: UIViewController,UICollectionViewDelegate,UICollectionView
     @IBOutlet weak var initialLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    let name = ["Jadwal Kuliah","Jadwal Live","Absensi Kehadiran","History Mengajar","Rekap Absen"]
-    let image = [UIImage(named: "ic_list")!,UIImage(named: "ic_live")!,UIImage(named: "ic_finger")!,UIImage(named: "ic_history")!,UIImage(named: "ic_finger")!]
+    let name = ["Jadwal Kuliah","Jadwal Live","Absensi Kehadiran","History Mengajar"]
+    let image = [UIImage(named: "ic_list")!,UIImage(named: "ic_live")!,UIImage(named: "ic_finger")!,UIImage(named: "ic_history")!]
     var collectionViewFlowLayout: UICollectionViewFlowLayout!
     
     @IBOutlet weak var helpbutton: UIBarButtonItem!

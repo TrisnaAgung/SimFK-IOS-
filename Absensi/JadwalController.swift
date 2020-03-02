@@ -10,7 +10,7 @@ import UIKit
 import JGProgressHUD
 import Alamofire
 
-class JadwalController: UIViewController,UITableViewDataSource, UITableViewDelegate{
+class JadwalController: UIViewController,UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate{
     
     let token = UserDefaults.standard.object(forKey: "token") as? String
     var jadwalkelas:JadwalKelas?
@@ -85,9 +85,35 @@ class JadwalController: UIViewController,UITableViewDataSource, UITableViewDeleg
         return cell
     }
     
+    func didSelectContact(){
+        let alert = UIAlertController(title: "Pilih Salah Satu", message: "", preferredStyle: UIAlertControllerStyle.actionSheet)
+        let edit = UIAlertAction(title: "Edit", style: UIAlertActionStyle.default) { (UIAlertAction) in
+            self.performSegue(withIdentifier: "addjadwal", sender: self.detailToSend)
+        }
+        let delete = UIAlertAction(title: "Delete", style: UIAlertActionStyle.default) { (UIAlertAction) in
+            SweetAlert().showAlert("Hapus", subTitle: "Apakah anda yakin akan menghapus \n data anda?", style: AlertStyle.warning, buttonTitle:"Iya", buttonColor:UIColor.green , otherButtonTitle:  "Tidak", otherButtonColor: UIColor.red) { (isOtherButton) -> Void in
+                if isOtherButton == true {
+                    self.matkuldelete(id: (self.detailToSend?.id)!)
+                }
+                else {
+                    print("Cancel Button  Pressed")
+                }
+            }
+        }
+//        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+    
+        edit.setValue(UIImage(named:"ic_edit")?.withRenderingMode(.alwaysOriginal), forKey: "image")
+        delete.setValue(UIImage(named:"ic_delete")?.withRenderingMode(.alwaysOriginal), forKey: "image")
+        alert.addAction(edit)
+        alert.addAction(delete)
+//        alert.addAction(cancel)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         detailToSend = self.jadwalkelas?.data[indexPath.row]
-        performSegue(withIdentifier: "addjadwal", sender: detailToSend)
+        self.didSelectContact()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -108,6 +134,39 @@ class JadwalController: UIViewController,UITableViewDataSource, UITableViewDeleg
         hud?.show(in: self.view)
         
         loaddata()
+    }
+    
+    func matkuldelete(id: Int){
+        hud?.show(in: self.view)
+        let parameters : Parameters = [
+            "id" : id
+        ]
+        let headers = ["Authorization" : "Bearer "+token!+"",
+                       "Content-Type": "application/json"]
+        Alamofire.request("http://sim.fk.unair.ac.id/api/jadwalkelas-hapus", method: .post ,parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON{
+            (response) in
+            switch response.result {
+            case .success(let json):
+                self.hud?.dismiss()
+                let jsondata = json as! [String : AnyObject]
+                let json2 = jsondata["data"] as! [String: AnyObject]
+                SweetAlert().showAlert(json2["status"] as! String, subTitle: "Data Berhasil Dihapus", style: AlertStyle.success, buttonTitle:  "OK") { (isOtherButton) -> Void in
+                    if isOtherButton == true {
+                        DispatchQueue.main.asyncAfter(deadline: .now()) {
+                            self.showHUDWithTransform()
+                        }
+                    }
+                }
+//                if jsondata["code"] as! Int == 200 {
+//
+//                } else{
+//                    print("gagal")
+//                }
+            case .failure(let error):
+                self.hud?.dismiss()
+                print(error)
+            }
+        }
     }
     
     @IBAction func refresh(segue:UIStoryboardSegue) {

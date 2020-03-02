@@ -14,6 +14,7 @@ import JGProgressHUD
 class LoginController: UIViewController {
 
     
+    @IBOutlet weak var help: UILabel!
     var iconClick = true
     @IBOutlet weak var user: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -108,6 +109,10 @@ class LoginController: UIViewController {
         hud?.backgroundColor = UIColor(white: 0, alpha: 0.4)
         hud?.layoutMargins = UIEdgeInsets.init(top: 0.0, left: 0.0, bottom: 10.0, right: 0.0)
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapFunction))
+        help.isUserInteractionEnabled = true
+        help.addGestureRecognizer(tap)
+        
 //        let gradientLayer:CAGradientLayer = CAGradientLayer()
 //        gradientLayer.frame.size = self.viewbackground.frame.size
 //        gradientLayer.colors =
@@ -116,6 +121,14 @@ class LoginController: UIViewController {
         
 //        viewbackground.layer.addSublayer(gradient)
         
+    }
+    
+    @objc func tapFunction(sender:UITapGestureRecognizer) {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier:"help") as? HelpViewController {
+            vc.modalTransitionStyle     = .crossDissolve;
+            vc.modalPresentationStyle   = .overCurrentContext
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     
     override func viewDidLayoutSubviews() {

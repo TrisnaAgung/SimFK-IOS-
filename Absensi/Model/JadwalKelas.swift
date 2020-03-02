@@ -219,12 +219,49 @@ class Ruangbaru: Codable {
 //   }
 
 // MARK: - Tipemengajar
+//class Tipemengajar: Codable {
+//    var kode, desc: String
+//
+//    init(kode: String, desc: String) {
+//        self.kode = kode
+//        self.desc = desc
+//    }
+//}
+
+//class Tipemengajar: Codable {
+//    var id: Int
+//    var nama,konstanta: String?
+//    var profesi,s1,s2,s3: String
+//    var sp1,sp2: String
+//    var kode, desc: String
+//
+//    init(id: Int, nama: String, konstanta: String, profesi: String, s1: String, s2: String, s3: String, sp1: String, sp2: String) {
+//        self.id = id
+//        self.konstanta = konstanta
+//        self.profesi = profesi
+//        self.s1 = s1
+//        self.s2 = s2
+//        self.s3 = s3
+//        self.sp1 = sp1
+//        self.sp2 = sp2
+//    }
+//}
+
 class Tipemengajar: Codable {
-    var kode, desc: String
+    var id: Int
+    var nama, konstanta, profesi, s1: String
+    var s2, s3, sp1, sp2: String
     
-    init(kode: String, desc: String) {
-        self.kode = kode
-        self.desc = desc
+    init(id: Int, nama: String, konstanta: String, profesi: String, s1: String, s2: String, s3: String, sp1: String, sp2: String) {
+        self.id = id
+        self.nama = nama
+        self.konstanta = konstanta
+        self.profesi = profesi
+        self.s1 = s1
+        self.s2 = s2
+        self.s3 = s3
+        self.sp1 = sp1
+        self.sp2 = sp2
     }
 }
 
