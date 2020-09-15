@@ -33,22 +33,23 @@ class Matkul: Codable {
 //     }
 //   }
 
+
 // MARK: - Datum
 class Datum: Codable {
     var idJadwalKelas: Int
-    var idRuangan, namaRuangan, noKelasMk, sks: String
-    var kodeMk: String
+    var idRuangan, namaRuangan, noKelasMk, sks: String?
+    var kodeMk: String?
     var namaMk: String
-    var namaMkEn: String
-    var idProdi: String
-    var namaProdi: String
-    var idJam, namaJam: String
-    var jamMulai: String
-    var jamSelesai, idHari: String
-    var namaHari: String
-    var tahunAkademik: String
-    var tahunAjaran: String
-    var groupSemester: String
+    var namaMkEn: String?
+    var idProdi: String?
+    var namaProdi: String?
+    var idJam, namaJam: String?
+    var jamMulai: String?
+    var jamSelesai, idHari: String?
+    var namaHari: String?
+    var tahunAkademik: String?
+    var tahunAjaran: String?
+    var groupSemester: String?
     var tingkatSemester, idKelasMk, namaKelas: String
     
     enum CodingKeys: String, CodingKey {
@@ -76,7 +77,7 @@ class Datum: Codable {
         case namaKelas = "nama_kelas"
     }
     
-    init(idJadwalKelas: Int, idRuangan: String, namaRuangan: String, noKelasMk: String, sks: String, kodeMk: String, namaMk: String, namaMkEn: String, idProdi: String, namaProdi: String, idJam: String, namaJam: String, jamMulai: String, jamSelesai: String, idHari: String, namaHari: String, tahunAkademik: String, tahunAjaran: String, groupSemester: String, tingkatSemester: String, idKelasMk: String, namaKelas: String) {
+    init(idJadwalKelas: Int, idRuangan: String?, namaRuangan: String?, noKelasMk: String?, sks: String?, kodeMk: String?, namaMk: String, namaMkEn: String?, idProdi: String?, namaProdi: String?, idJam: String?, namaJam: String?, jamMulai: String?, jamSelesai: String?, idHari: String?, namaHari: String?, tahunAkademik: String?, tahunAjaran: String?, groupSemester: String?, tingkatSemester: String, idKelasMk: String, namaKelas: String) {
         self.idJadwalKelas = idJadwalKelas
         self.idRuangan = idRuangan
         self.namaRuangan = namaRuangan

@@ -41,7 +41,8 @@ class JadwalData: Codable {
     var checkIn: String?
     var checkOut: String?
     var tglBaru: JSONNull?
-    var ruangBaru, jamAwal, jamAkhir: String
+    var ruangBaru: String?
+    var jamAwal, jamAkhir: String
     var ip: JSONNull?
     var nim: String?
     var lama: String?
@@ -167,12 +168,13 @@ class Ploting: Codable {
 // MARK: - Ruangbaru
 class Ruangbaru: Codable {
     var idRuang: Int
-    var kodeCyber, namaRuang, tipeRuang: String
+    var kodeCyber, namaRuang: String
+    var tipeRuang: String?
     var deskRuang: String?
     var idGedung, kodeGedung, namaGedung, lokasiGedung: String
     var deskGedung: String
     var kapasitas: Int
-    var kapasitasUjian: String
+    var kapasitasUjian: String?
     var ip, finger: JSONNull?
     
     enum CodingKeys: String, CodingKey {
@@ -191,7 +193,7 @@ class Ruangbaru: Codable {
         case ip, finger
     }
     
-    init(idRuang: Int, kodeCyber: String, namaRuang: String, tipeRuang: String, deskRuang: String?, idGedung: String, kodeGedung: String, namaGedung: String, lokasiGedung: String, deskGedung: String, kapasitas: Int, kapasitasUjian: String, ip: JSONNull?, finger: JSONNull?) {
+    init(idRuang: Int, kodeCyber: String, namaRuang: String, tipeRuang: String?, deskRuang: String?, idGedung: String, kodeGedung: String, namaGedung: String, lokasiGedung: String, deskGedung: String, kapasitas: Int, kapasitasUjian: String?, ip: JSONNull?, finger: JSONNull?) {
         self.idRuang = idRuang
         self.kodeCyber = kodeCyber
         self.namaRuang = namaRuang

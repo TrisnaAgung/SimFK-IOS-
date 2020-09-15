@@ -35,7 +35,7 @@ class Ruang: Codable {
 
 // MARK: - Datum
 class RuangData: Codable {
-    var kodeCyber: String
+    var kodeCyber: String?
     var namaRuang, namaGedung: String?
     
     enum CodingKeys: String, CodingKey {
@@ -44,7 +44,7 @@ class RuangData: Codable {
         case namaGedung = "nama_gedung"
     }
     
-    init(kodeCyber: String, namaRuang: String?, namaGedung: String?) {
+    init(kodeCyber: String?, namaRuang: String?, namaGedung: String?) {
         self.kodeCyber = kodeCyber
         self.namaRuang = namaRuang
         self.namaGedung = namaGedung

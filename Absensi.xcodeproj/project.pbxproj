@@ -51,7 +51,7 @@
 		0BF602332373A595002AE046 /* AbsensiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF602322373A595002AE046 /* AbsensiTests.swift */; };
 		0BF6023E2373A595002AE046 /* AbsensiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF6023D2373A595002AE046 /* AbsensiUITests.swift */; };
 		0BF6024E2373A632002AE046 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF6024D2373A632002AE046 /* HomeController.swift */; };
-		0DBBDE078EF7969FCD6DB521 /* Pods_Absensi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6359A3741B571851A32749A /* Pods_Absensi.framework */; };
+		3D6ECA486D5C79D652ADE727 /* Pods_Absensi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C641842440A2832434A19245 /* Pods_Absensi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,9 +122,9 @@
 		0BF6023D2373A595002AE046 /* AbsensiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbsensiUITests.swift; sourceTree = "<group>"; };
 		0BF6023F2373A595002AE046 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BF6024D2373A632002AE046 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
-		6DC6195C4868A6172F32495B /* Pods-Absensi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Absensi.release.xcconfig"; path = "Target Support Files/Pods-Absensi/Pods-Absensi.release.xcconfig"; sourceTree = "<group>"; };
-		D6359A3741B571851A32749A /* Pods_Absensi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Absensi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5984DD84CB3CCC425F96261 /* Pods-Absensi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Absensi.debug.xcconfig"; path = "Target Support Files/Pods-Absensi/Pods-Absensi.debug.xcconfig"; sourceTree = "<group>"; };
+		9B44067EFA5C1ED2E6CB7834 /* Pods-Absensi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Absensi.debug.xcconfig"; path = "Target Support Files/Pods-Absensi/Pods-Absensi.debug.xcconfig"; sourceTree = "<group>"; };
+		C641842440A2832434A19245 /* Pods_Absensi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Absensi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F78944C191AD3CDCF91E6428 /* Pods-Absensi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Absensi.release.xcconfig"; path = "Target Support Files/Pods-Absensi/Pods-Absensi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DBBDE078EF7969FCD6DB521 /* Pods_Absensi.framework in Frameworks */,
+				3D6ECA486D5C79D652ADE727 /* Pods_Absensi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,7 +206,7 @@
 				0BF6023C2373A595002AE046 /* AbsensiUITests */,
 				0BF6021B2373A595002AE046 /* Products */,
 				6BC4BCC887A7FEF4DBBA6C67 /* Pods */,
-				95D2F0C12421DDF64D3AF2C6 /* Frameworks */,
+				8C0B5B6AEA12EFF528EA473F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -270,16 +270,16 @@
 		6BC4BCC887A7FEF4DBBA6C67 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F5984DD84CB3CCC425F96261 /* Pods-Absensi.debug.xcconfig */,
-				6DC6195C4868A6172F32495B /* Pods-Absensi.release.xcconfig */,
+				9B44067EFA5C1ED2E6CB7834 /* Pods-Absensi.debug.xcconfig */,
+				F78944C191AD3CDCF91E6428 /* Pods-Absensi.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		95D2F0C12421DDF64D3AF2C6 /* Frameworks */ = {
+		8C0B5B6AEA12EFF528EA473F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D6359A3741B571851A32749A /* Pods_Absensi.framework */,
+				C641842440A2832434A19245 /* Pods_Absensi.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -291,11 +291,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0BF602422373A595002AE046 /* Build configuration list for PBXNativeTarget "Absensi" */;
 			buildPhases = (
-				B73150412FD333CE256AE816 /* [CP] Check Pods Manifest.lock */,
+				DEE8A6A6B578C6E950E75384 /* [CP] Check Pods Manifest.lock */,
 				0BF602162373A595002AE046 /* Sources */,
 				0BF602172373A595002AE046 /* Frameworks */,
 				0BF602182373A595002AE046 /* Resources */,
-				283A00CB0DC7558FBC6FFEAF /* [CP] Embed Pods Frameworks */,
+				FFA74B4B0CE89D2E9C218286 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -416,7 +416,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		283A00CB0DC7558FBC6FFEAF /* [CP] Embed Pods Frameworks */ = {
+		DEE8A6A6B578C6E950E75384 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Absensi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FFA74B4B0CE89D2E9C218286 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -442,24 +464,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Absensi/Pods-Absensi-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B73150412FD333CE256AE816 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Absensi-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -671,7 +675,7 @@
 		};
 		0BF602432373A595002AE046 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F5984DD84CB3CCC425F96261 /* Pods-Absensi.debug.xcconfig */;
+			baseConfigurationReference = 9B44067EFA5C1ED2E6CB7834 /* Pods-Absensi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -689,7 +693,7 @@
 		};
 		0BF602442373A595002AE046 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6DC6195C4868A6172F32495B /* Pods-Absensi.release.xcconfig */;
+			baseConfigurationReference = F78944C191AD3CDCF91E6428 /* Pods-Absensi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
