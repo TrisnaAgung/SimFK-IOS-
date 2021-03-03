@@ -47,7 +47,7 @@ class LoginController: UIViewController {
             "username" : self.user.text as Any,
             "password" : self.password.text as Any,
         ]
-        Alamofire.request("http://sim.fk.unair.ac.id/api/login", method: .post ,parameters: parameters, encoding: JSONEncoding.default).responseJSON{
+        Alamofire.request("\(BASE_URL)api/login", method: .post ,parameters: parameters, encoding: JSONEncoding.default).responseJSON{
             (response) in
             switch response.result {
             case .success(let json):

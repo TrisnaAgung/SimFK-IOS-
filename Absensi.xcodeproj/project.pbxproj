@@ -51,6 +51,7 @@
 		0BF602332373A595002AE046 /* AbsensiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF602322373A595002AE046 /* AbsensiTests.swift */; };
 		0BF6023E2373A595002AE046 /* AbsensiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF6023D2373A595002AE046 /* AbsensiUITests.swift */; };
 		0BF6024E2373A632002AE046 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF6024D2373A632002AE046 /* HomeController.swift */; };
+		25F9EBA325EF4B50009104DE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9EBA225EF4B50009104DE /* Constants.swift */; };
 		3D6ECA486D5C79D652ADE727 /* Pods_Absensi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C641842440A2832434A19245 /* Pods_Absensi.framework */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +123,7 @@
 		0BF6023D2373A595002AE046 /* AbsensiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbsensiUITests.swift; sourceTree = "<group>"; };
 		0BF6023F2373A595002AE046 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BF6024D2373A632002AE046 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		25F9EBA225EF4B50009104DE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9B44067EFA5C1ED2E6CB7834 /* Pods-Absensi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Absensi.debug.xcconfig"; path = "Target Support Files/Pods-Absensi/Pods-Absensi.debug.xcconfig"; sourceTree = "<group>"; };
 		C641842440A2832434A19245 /* Pods_Absensi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Absensi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78944C191AD3CDCF91E6428 /* Pods-Absensi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Absensi.release.xcconfig"; path = "Target Support Files/Pods-Absensi/Pods-Absensi.release.xcconfig"; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				0B4284B023A9B6CF00A1CD51 /* ScannerViewController.swift */,
 				0B0AE77923AB556C004A4F5D /* HistoryMengajarViewController.swift */,
 				0BEDBB9023C2C00F00BE03EB /* HelpViewController.swift */,
+				25F9EBA225EF4B50009104DE /* Constants.swift */,
 			);
 			path = Absensi;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				0B20AB8823A768E70073712A /* TipeViewController.swift in Sources */,
 				0BB5A2962384E2110078ABCA /* JadwalKelas.swift in Sources */,
 				0BB5A2942384D49D0078ABCA /* SweetAlert.swift in Sources */,
+				25F9EBA325EF4B50009104DE /* Constants.swift in Sources */,
 				0B7C8E4F2383E7D900DEBD80 /* Ruang.swift in Sources */,
 				0BEDBB9123C2C00F00BE03EB /* HelpViewController.swift in Sources */,
 				0BD3C6E8237D3EBF00DAF0C8 /* MatkulViewController.swift in Sources */,

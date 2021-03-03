@@ -42,7 +42,7 @@ class JadwalController: UIViewController,UITableViewDataSource, UITableViewDeleg
         let headers = ["Authorization" : "Bearer "+token!+"",
                        "Content-Type": "application/json"]
         
-        Alamofire.request("http://sim.fk.unair.ac.id/api/jadwalkelas-list", method: .get ,parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJadwalKelas{
+        Alamofire.request("\(BASE_URL)api/jadwalkelas-list", method: .get ,parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJadwalKelas{
             (response) in
             switch response.result {
             case .success( _):
@@ -143,7 +143,7 @@ class JadwalController: UIViewController,UITableViewDataSource, UITableViewDeleg
         ]
         let headers = ["Authorization" : "Bearer "+token!+"",
                        "Content-Type": "application/json"]
-        Alamofire.request("http://sim.fk.unair.ac.id/api/jadwalkelas-hapus", method: .post ,parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON{
+        Alamofire.request("\(BASE_URL)api/jadwalkelas-hapus", method: .post ,parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON{
             (response) in
             switch response.result {
             case .success(let json):

@@ -241,7 +241,7 @@ class AddJadwalController: UIViewController,UITextFieldDelegate {
         let headers = ["Authorization" : "Bearer "+token!+"",
                        "Content-Type": "application/json"]
         
-        Alamofire.request("http://sim.fk.unair.ac.id/api/ploting-list", method: .get ,parameters: nil, encoding: JSONEncoding.default, headers: headers).responseMatkul{
+        Alamofire.request("\(BASE_URL)api/ploting-list", method: .get ,parameters: nil, encoding: JSONEncoding.default, headers: headers).responseMatkul{
             (response) in
             switch response.result {
             case .success( _):
